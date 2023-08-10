@@ -1,0 +1,13 @@
+    // Unexpire passwords to simplify dev mode. Comment these two lines for Production use
+    zn "%SYS"
+    // Don't do this except for local development 
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
+    
+    // create SC namespace
+    do $SYSTEM.OBJ.Load("/opt/irisbuild/Installer.cls", "ck") 
+    set sc = ##class(App.Installer).setup() 
+    
+    //
+    zn "SC"
+ 
+    H
